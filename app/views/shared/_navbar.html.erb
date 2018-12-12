@@ -12,9 +12,12 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="<%= users_sign_up_path %>">Create User</a></li>
         <% if logged? %>
-          <li><a href="<%= session_path(current_user) %>" data-method='delete'>Destroy session</a></li>
+          <li><a href="<%= root_path %>"><%= current_user.name %></a></li>
+          <li><a href="<%= session_path(current_user) %>" data-method='delete'>Cerrar sesión</a></li>
+        <% else %>
+          <li><a href="<%= users_sign_in_path %>">Iniciar sesión</a></li>
+          <li><a href="<%= users_sign_up_path %>">Registrate</a></li>
         <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">

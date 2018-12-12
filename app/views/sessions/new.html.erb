@@ -1,4 +1,4 @@
-<%= form_with(model: @user) do |form| %>
+<%= form_with(model: @user, url: sessions_path, method: :post) do |form| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -20,13 +20,6 @@
     </div>
 
     <div class="form-group container">
-      <%= form.label :email, 'Email', class: "col-lg-2 control-label" %>
-      <div class="col-lg-10">
-        <%= form.text_field :email, id: :user_email, class: "form-control" %>
-      </div>
-    </div>
-
-    <div class="form-group container">
       <%= form.label :password, 'Contraseña', class: "col-lg-2 control-label" %>
       <div class="col-lg-10">
         <%= form.password_field :password, id: :user_password, class: "form-control" %>
@@ -35,7 +28,7 @@
 
     <div class="actions form-group container">
       <div class="col-lg-10 col-lg-offset-2">
-        <%= form.submit "Registrarse", class: "btn btn-primary" %>
+        <%= form.submit "Iniciar sesión", class: "btn btn-primary" %>
       </div>
     </div>
   </fieldset>
